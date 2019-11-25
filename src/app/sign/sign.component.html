@@ -1,0 +1,39 @@
+<p>sign works!</p>
+<div class="div col-md-5 offset-4 card mt-4 card-body">
+    <h1>signup</h1>
+    <div class="dispaly-4 text-center"></div>
+    <form action="" [formGroup]="form" (ngsubmit)="submit(form)">
+          <div class="form-group">
+            <label for="username">username</label>
+            <input 
+            formControlName="username"
+            type="text" class="form-control" id="username" placeholder="username">
+            <div class="alert alert-danger mt-2"
+            *ngIf="username.touched && username.invalid">
+            <p *ngIf="username.errors.requried">username is requried</p>
+            <p *ngIf="username.errors.minlength">username should hava 3 charcater</p>
+            <p *ngIf="username.errors.pattern">username name is not matched</p>
+            <p *ngIf="username.errors.unique">username name shold be unique</p>
+        </div>
+        
+        </div>
+
+        <div class="form-group">
+            <label for="password">password</label>
+            <input 
+            formControlName="password"
+            type="password" class="form-control" id="password" placeholder="password">
+            <div class="alert alert-danger mt-2"
+            *ngIf="password.touched && password.invalid">password is requried
+        </div>
+        </div>
+        <div class="form-group">
+            <label for="phonenumber">phonenumber</label>
+            <input 
+            formControlName="phonenumber"
+            type="text" class="form-control" placeholder="phonenumber"></div>
+            <div class="form-group">
+            <button class="btn btn-danger offset-4 " type="submit">signup</button>
+            </div>
+    </form>
+</div>

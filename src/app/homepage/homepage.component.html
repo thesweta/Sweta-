@@ -1,0 +1,70 @@
+<!----<div class="row">
+<div class="col-md-3" *ngFor="let emp of employees">
+    <img src="{{emp.empPhots}}" alt="Phots"/>
+
+</div>
+</div>-->
+<button class="btn btn-primary mt-2" (click)="addEmp()">add employee</button>
+
+<table class="table table-bordered mt-4">
+
+    <thead class="thead-dark">
+        <tr>
+            <th>index</th>
+            <th>empid</th>
+            <th>empName</th>
+            <th>empPhots</th>
+            <th>empSal</th>
+            <th>empCompany</th>
+            <th>empLoc</th>
+            <th>empDesignation</th>
+            <th>empDOJ</th>
+            <th>empClg</th>
+            <th>remove</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <!----style directive-->
+        <tr *ngFor="let emp of employees;index as i"
+         [ngStyle]="{'color':'red','padding':'10px',
+        'background-color' :'green',
+        border:'2px solid #111' }">
+            <td><span class="badge badge-succes">{{i+1}}</span></td>
+            <td>{{emp.empid}}</td>
+            <td>{{emp.empName}}</td>
+            <td><img class="img-fluid rounded" src="{{emp.empPhots}}" alt="Phots" /></td>
+            <td>{{emp.empSal}}</td>
+            <td>{{emp.empCompany}}</td>
+            <td>{{emp.empLoc}}</td>
+            <td>{{emp.empDOJ}}</td>
+            <td>{{emp.empDesgination}}</td>
+            <td>{{emp.empClg}}</td>
+
+            <button (click)="removeEmp(emp)" class="btn btn-danger mt-4">remove</button>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="employees.length > 0; then emp else noemp"></div>
+<ng-template #emp>
+    <h1 style="color:green;">employee here</h1>
+</ng-template>
+<!---then-->
+<ng-template #noemp>
+    <h1 style="color: red;">no employee here</h1>
+</ng-template>
+<!---else--->
+
+<span [ngSwitch]="color">
+    <p *ngSwitchCase="'red'">
+        red color
+    </p>
+    <p *ngSwitchCase="'blue'">
+        blue color
+    </p>
+    <p *ngSwitchCase="green">
+        greeen color
+    </p>
+
+</span>

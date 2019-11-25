@@ -1,0 +1,27 @@
+<p>languages works!</p>
+<!----class binding-->
+<button [class.sweta]="isActive">sweta</button>
+<table>
+    <!----attribute binding-->
+    <tr>
+        <td [attr.colSpan]="colSpan">test</td>
+    </tr>
+
+    <button style="background: red;">stylebinding</button>
+    <!--stylebinding-->
+    <button [style.backgroundColor]="color ? 'green':'red'">
+        style binding</button>
+    <!----event binding-->
+    <button (click)="clickEvent($event)" class="btn btn-success">
+        event binding
+    </button>
+    <!----keyboard-->
+    <input type="text" class="form-control" placeholder="enter your name" (keyup.enter)=keyupEvent($event) />
+    <!-----event filter template variable way to get the value-->
+    <input type="email" name=" " id="" class="form-control" placeholder="enter email" #email
+        (keyup.enter)=enterEmail(email.value) />
+    <!---two way data binding ngmodule depends on formmodule and it is working only on forms-->
+    <input type="text" [(ngModel)]="username" placeholder="enter username" class="form-control" />
+    <h1>{{username}}</h1>
+
+</table>

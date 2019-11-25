@@ -1,0 +1,59 @@
+<div class="col-md-4 offset-4 card mt-4 bg-primary">
+    <div class="card-body">
+        <h1 class="text-center">Register</h1>
+        <form action="" #form="ngForm" (ngsubmit)="submit(form)">
+                <div class="form-group"> 
+                        <label for="firstname">firstname</label>
+                        <input
+                        ngModel 
+                        type="text" class="form-control" name="firstname" id="firstname" required minlength="6">
+                        <div *ngIf></div>
+                    </div>
+                    <div class="form-group"> 
+                            <label for="lastname">lastname</label>
+                            <input type="text" class="form-control" name="lastname" id="lastname">
+                        </div>
+                        <div class="form-group"> 
+                                <label for="email">email</label>
+                                <input type="text" class="form-control" name="email" id="email">
+                            </div>
+            <div class="form-group"> 
+                <label for="username">username</label>
+                <input ngModel #username="ngModel" (change)="checkngmodeldetail(username)" name="username"
+                required minlength="3" pattern="[a-z]{1,15}" type="text" class="form-control" id="username"/>
+                <div *ngIf="username.invalid && username.touched"class="text-danger alert alert-danger m-2">
+                <p *ngIf="username.errors.required">username is required</p>
+                <p *ngIf="username.errors.minlength">username should be minimum 3 characters</p>
+                <p *ngIf="username.errors.pattern">username is not match</p>
+             </div>
+            </div>
+            <div class="form-group"> 
+                    <label for="phonenumber">phonenumber</label>
+                    <input type="text" class="form-control" name="phonenumber" id="phonenumber">
+                </div>
+            <div class="form-group">
+                    <label for="password">password</label>
+                    <input type="password" name="password" id="password">
+            </div>
+            <div class="form-group">
+                <label for="country">country</label>
+        <select id="country" ngModel #country="ngModel" name="country">
+            <option *ngFor="let country of country_list index as i;" value="{{i}}">{{country}}</option>
+        </select >
+            </div>
+       
+            <div>
+                <input type="date" name=" " id=" ">
+                <input type="colour" name=" " id=" ">
+                <input type="search" name=" " id=" ">
+                <input type="url" name=" " id=" ">
+                <input type="range" name=" " id=" ">
+                <input type="file">
+            </div>
+            <div>
+                <button class="btn btn-success">submit</button>
+            </div>
+        </form>
+        <a href="www.google.com" target="self">google</a>
+    </div>
+            
